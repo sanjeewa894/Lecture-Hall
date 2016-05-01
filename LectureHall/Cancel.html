@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<title> Cancel Lecture Hall Reservation </title>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">		
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="css/background.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap2.css">
+		<script src="js/jquery2.js"></script>
+		<script src="js/bootstrap2.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+		<script type="text/javascript" language="javascript" >
+		
+		$(document).ready(function() {
+				var dataTable = $('#employee-grid').DataTable( {
+					"processing": true,
+					"serverSide": true,
+					"columnDefs": [ {
+						  "targets": 0,
+						  "orderable": false,
+						  "searchable": false
+						   
+						} ],
+					"ajax":{
+						url :"employee-grid-data.php", // json datasource
+						type: "post",  // method  , by default get
+						error: function(){  // error handling
+							$(".employee-grid-error").html("");
+							$("#employee-grid").append('<tbody class="employee-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+							$("#employee-grid_processing").css("display","none");
+							
+						}
+					}
+				} );
+				
+				
+				$("#bulkDelete").on('click',function() { // bulk checked
+					var status = this.checked;
+					$(".deleteRow").each( function() {
+						$(this).prop("checked",status);
+					});
+				});
+				
+				$('#deleteTriger').on("click", function(event){ // triggering delete one by one
+					if( $('.deleteRow:checked').length > 0 ){  // at-least one checkbox checked
+						var ids = [];
+						$('.deleteRow').each(function(){
+							if($(this).is(':checked')) { 
+								ids.push($(this).val());
+							}
+						});
+						var ids_string = ids.toString();  // array to string conversion 
+						$.ajax({
+							type: "POST",
+							url: "employee-delete.php",
+							data: {data_ids:ids_string},
+							success: function(result) {
+								dataTable.draw(); // redrawing datatable
+							},
+							async:false
+						});
+					}
+				});	
+			} );
+		</script>
+		<style>
+			div.container {
+			    margin: 0 auto;
+			    max-width:760px;
+			}
+			div.header {
+			    margin: 30px auto;
+			    line-height:10px;
+			    max-width:540px;
+			}
+			body {
+			    background: #008080;
+			    color: ##cd5c5c;
+			    font: 90%/1.45em "Helvetica Neue",HelveticaNeue,Verdana,Arial,Helvetica,sans-serif;
+			}
+		</style>
+	
+	</head>
+	<body>
+	
+	<!--//........end bar.........// -->
+	  <header class="navbar navbar-fixed-upper">
+		 <div class="container-fluid" style ='background-color: #2f4f4f;' >
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+
+			 <!--a class="navbar-brand  " href="#">.... See You Again</a-->
+		</div>
+		<div> <a class="navbar-text pull-right">
+		<button type="button" class="btn btn-link">
+		<span style="color:white   "><b>HOME</b>
+		</button>
+		</span></a></div>
+		</div>
+	  </header>
+	
+	
+		<div class="header "><h1><span style="color:#d2691e"> 
+		Cancel The Reservation
+		</span> </h1></div>
+		<hr><br></br>
+		<div class="container">
+			<table id="employee-grid"  cellpadding="0" cellspacing="0" border="0" class="display" width="100%">
+					<thead>
+						<tr>
+							<th><input type="checkbox"  id="bulkDelete">&nbsp Hall name</th>
+							<th>Date</th>
+							<th>Time</th>
+						</tr>
+					</thead>
+			</table>
+		</div>
+		<hr>
+		<div class="form-group">
+	<div class="col-lg-6 col-sm-offset-6 col-xs-6"> </div>
+	<div class="col-lg-4 col-sm-offset-4 col-xs-4"> 
+	<button type="submit" class="btn btn-danger   pull-right">
+	Cancel</button> 
+	</div> </div>
+	
+	
+	<!--//........end bar.........// -->
+	  <header class="navbar navbar-default navbar-fixed-bottom">
+		 <div class="container-fluid"  style ='background-color: maroon;'>
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+
+			 <!--a class="navbar-brand  " href="#">.... See You Again</a-->
+		</div>
+		<div> <a class="navbar-text pull-right">
+		<span style="color:#ff7f50   ">.. Finish Creation..
+		</span></a></div>
+		</div>
+	  </header>
+	
+	</body>
+</html>

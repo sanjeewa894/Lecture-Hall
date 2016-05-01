@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html >
+<head>
+<title>Booking_Hall</title>
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="css/background.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bootstrap-select.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/jquery2.js"></script>
+<script src="js/bootstrap2.js"></script>
+<script src="js/bootstrap-select.js"></script>
+	  
+</head>
+<body  >
+<header class="navbar navbar-default">
+ <div class="container-fluid"  style ='background-color: maroon;'>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+	 <a class="navbar-brand" href="#"><span style="color:white">
+	  <font size="6"><b>Lacture Hall Reservation</b>
+	  </font></span></a>
+	<div> <a class="navbar-text pull-right">
+		<button type="button" class="btn btn-link">
+		<span style="color:white   "><b>HOME</b>
+		</button>
+		</span></a></div>
+</div>
+</div>
+</header>
+<!--/.......tabs...........//-->
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+  
+	<form class="form-horizontal" role="form"> 
+	<div class="form-group  "> 
+	<span style="color:DarkOrange ">
+	<label for="hallname" class="control-label col-lg-2 col-sm-2 col-xs-4  ">
+			Hall Name</label>
+    </span>
+	<div class="col-lg-6 col-sm-6 col-xs-6 ">
+		<input type="text" class="form-control" id="hallname" placeholder="Enter Hall Name"> 
+	</div>	</div>
+
+	<div class="form-group "> 
+	<span style="color:DarkOrange ">
+	<label for="capasity" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+		Capasity</label>
+	</span>
+	<div class="col-lg-6 col-sm-6 col-xs-6 ">
+		<input type="text" class="form-control" id="capasity" placeholder="Enter Capasity">
+	</div>
+	</div>
+	
+	<div class="form-group "> 
+	<span style="color:DarkOrange ">
+	<label for="arrangment" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+		Seat Arrangment</label>
+	</span>
+	<div class="col-lg-6 col-sm-6 col-xs-6 ">
+		<input type="text" class="form-control" id="arrangment" placeholder="Enter Seat Arrangment">
+	</div>
+	</div>
+	
+	<div class="form-group "> 
+	<span style="color:DarkOrange ">
+	<label for="halltype" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+		Hall Type</label>
+	</span>
+	<div class="col-lg-6 col-sm-6 col-xs-6 ">
+		 <select class="selectpicker pull-right " data-live-search="true">
+		<option>Lecture Hall</option>
+		<option>Seminar Room</option>
+		<option>EOE Theatre</option>
+		<option>Common Room</option>
+		
+	  </select>
+	</div>
+	</div>
+	
+	<div class="form-group "> 
+	<span style="color:DarkOrange ">
+	<label for="incharge" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+		In Charge</label>
+	</span>
+	<div class="col-lg-6 col-sm-6 col-xs-6 ">
+		<input type="text" class="form-control" id="incharge" placeholder="Enter In Charge">
+	</div>
+	</div>
+	
+	<div class="form-group">
+	<div class="col-lg-6 col-sm-offset-6 col-xs-6"> </div>
+	<div class="col-lg-4 col-sm-offset-4 col-xs-4"> 
+	<button type="submit" class="btn btn-success btn-sm btn-block pull-right">
+	Submit
+	</button> 
+	</div> </div>
+	
+	</form>
+<br>
+<hr>
+<div style="background-color: MediumVioletRed  ; " >
+ <p align="center">
+ <font size="5" color="Lime ">
+ <b>Create New User Account </b>
+ </font></p>
+ </div>
+<br>
+<!--.....use account...-->
+
+	<form class="form-horizontal" role="form"> 
+		<div class="form-group  "> 
+		<span style="color:DarkOrange ">
+		<label for="username" class="control-label col-lg-2 col-sm-2 col-xs-4  ">
+				User Name</label>
+		</span>
+		<div class="col-lg-6 col-sm-6 col-xs-6 ">
+			<input type="text" class="form-control" id="username" placeholder="Enter User Name"> 
+		</div>	</div>
+
+		<div class="form-group "> 
+		<span style="color:DarkOrange ">
+		<label for="password" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+			Password</label>
+		</span>
+		<div class="col-lg-6 col-sm-6 col-xs-6 ">
+			<input type="text" class="form-control" id="capasity" placeholder="Enter Password">
+		</div>
+		</div>
+		
+		<div class="form-group "> 
+		<span style="color:DarkOrange ">
+		<label for="roll" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+			Roll</label>
+		</span>
+		<div class="col-lg-6 col-sm-6 col-xs-6 ">
+			<input type="text" class="form-control" id="arrangment" placeholder="Enter Roll of user">
+		</div>
+		</div>
+		
+		<div class="form-group "> 
+		<span style="color:DarkOrange ">
+		<label for="firstname" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+			First Name</label>
+		</span>
+		<div class="col-lg-6 col-sm-6 col-xs-6 ">
+			<input type="text" class="form-control" id="halltype" placeholder="Enter First Name">
+		</div>
+		</div>
+		
+		<div class="form-group "> 
+		<span style="color:DarkOrange ">
+		<label for="lastname" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+			Last Name</label>
+		</span>
+		<div class="col-lg-6 col-sm-6 col-xs-6 ">
+			<input type="text" class="form-control" id="incharge" placeholder="Enter Last Name">
+		</div>
+		</div>
+		
+		<div class="form-group "> 
+		<span style="color:DarkOrange ">
+		<label for="sex" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+			Sex</label>
+		</span>
+		<div class="col-lg-6 col-sm-6 col-xs-6 ">
+			<select class="selectpicker pull-right " data-live-search="true">
+		<option>Male</option>
+		<option>Female</option>
+		
+		
+	  </select>
+		</div>
+		</div>
+		
+		<div class="form-group "> 
+		<span style="color:DarkOrange ">
+		<label for="address" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+			Address</label>
+		</span>
+		<div class="col-lg-6 col-sm-6 col-xs-6 ">
+			<input type="text" class="form-control" id="incharge" placeholder="Enter the address">
+		</div>
+		</div>
+		
+		<div class="form-group "> 
+		<span style="color:DarkOrange ">
+		<label for="incharge" class="col-lg-2 col-sm-2 col-xs-4 control-label ">
+			In Charge</label>
+		</span>
+		<div class="col-lg-6 col-sm-6 col-xs-6 ">
+			<input type="text" class="form-control" id="incharge" placeholder="Enter in charge">
+		</div>
+		</div>
+		
+		<div class="form-group">
+		<div class="col-lg-6 col-sm-offset-6 col-xs-6"> </div>
+		<div class="col-lg-4 col-sm-offset-4 col-xs-4"> 
+		<button type="submit" class="btn btn-primary btn-sm btn-block pull-right">
+		Create
+		</button> 
+		</div> </div>
+		
+		</form>
+<hr>
+<br></br>
+<!--//........end bar.........// -->
+<header class="navbar navbar-default navbar-fixed-bottom">
+ <div class="container-fluid"  style ='background-color: maroon;'>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+
+	 <!--a class="navbar-brand  " href="#">.... See You Again</a-->
+</div>
+<div> <a class="navbar-text pull-right">
+<span style="color:Aqua   ">.. Finish Creation..
+</span></a></div>
+</div>
+</header>
+
+
+
+</body>
+
+</html>
